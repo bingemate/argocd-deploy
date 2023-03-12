@@ -13,6 +13,7 @@ spec:
         app: {{ .Chart.Name }}
     spec:
       containers:
+        - name: container-0
         - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           livenessProbe:
