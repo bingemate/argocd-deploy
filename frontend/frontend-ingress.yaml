@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-ci
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: dev-ci.bingemate.fr
+      http:
+        paths:
+          - backend:
+              service:
+                name: frontend-ci
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
