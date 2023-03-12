@@ -1,0 +1,23 @@
+image:
+  repository: rg.fr-par.scw.cloud/binge-mate/frontend
+  tag: dev
+  pullPolicy: Always
+
+resources:
+  limits:
+    cpu: 3m
+    memory: 10Mi
+  requests:
+    cpu: 1m
+    memory: 6Mi
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  host: dev-ci.bingemate.fr
+  path: /
+  pathType: Prefix
+  ingressClassName: traefik

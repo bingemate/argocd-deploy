@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-ci
+  name: {{ .Chart.Name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend-ci
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-        app: frontend-ci
+        app: {{ .Chart.Name }}
     spec:
       containers:
-        - image: rg.fr-par.scw.cloud/binge-mate/frontend:dev
-          imagePullPolicy: Always
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           livenessProbe:
             failureThreshold: 3
             httpGet:
@@ -24,7 +24,6 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 1
-          name: container-0
           ports:
             - containerPort: 80
               name: 80tcp
@@ -40,11 +39,11 @@ spec:
             timeoutSeconds: 1
           resources:
             limits:
-              cpu: 3m
-              memory: 10Mi
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
             requests:
-              cpu: 1m
-              memory: 6Mi
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
           startupProbe:
             failureThreshold: 3
             httpGet:
