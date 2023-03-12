@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-ci
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-ci
+  template:
+    metadata:
+      labels:
+        app: frontend-ci
+    spec:
+      containers:
+        - image: rg.fr-par.scw.cloud/binge-mate/frontend:dev
+          imagePullPolicy: Always
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: container-0
+          ports:
+            - containerPort: 80
+              name: 80tcp
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 3m
+              memory: 10Mi
+            requests:
+              cpu: 1m
+              memory: 6Mi
+          startupProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
