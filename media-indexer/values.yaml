@@ -1,0 +1,27 @@
+image:
+  repository: rg.fr-par.scw.cloud/binge-mate/media-indexer
+  tag: dev
+  pullPolicy: Always
+
+resources:
+  limits:
+    cpu: 50m
+    memory: 150Mi
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+service:
+  type: ClusterIP
+  port: 8080
+
+storage:
+  className: "nfs-client"
+  logs: 1Gi
+  moviesSource: 20Gi
+  moviesTarget: 20Gi
+  tvSource: 20Gi
+  tvTarget: 20Gi
+
+
+tmdbApiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

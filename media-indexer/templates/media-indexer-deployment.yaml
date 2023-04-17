@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - image: {{.Values.image.repository}}:{{.Values.image.tag}}
+          name: {{ .Chart.Name }}
+          imagePullPolicy: {{.Values.image.pullPolicy}}
+          env:
+            - name: PORT
+              value: "8080"
+            - name: LOG_FILE
+              value: "/var/log/app/golang-app.log"
+            - name: MOVIE_SOURCE_FOLDER
+              value: "/app/movies-source"
+            - name: MOVIE_TARGET_FOLDER
+              value: "/app/movies-target"
+            - name: TV_SOURCE_FOLDER
+              value: "/app/tvshows-source"
+            - name: TV_TARGET_FOLDER
+              value: "/app/tvshows-target"
+            - name: TMDB_API_KEY
+              value: {{ .Values.tmdbApiKey }}
+          volumeMounts:
+            - mountPath: /var/log/app
+              name: log-volume
+            - mountPath: /app/movies-source
+              name: movies-source-volume
+            - mountPath: /app/movies-target
+              name: movies-target-volume
+            - mountPath: /app/tvshows-source
+              name: tv-source-volume
+            - mountPath: /app/tvshows-target
+              name: tv-target-volume
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          startupProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          ports:
+            - containerPort: 8080
+              name: 8080tcp
+              protocol: TCP
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+      volumes:
+        - name: log-volume
+          persistentVolumeClaim:
+            claimName: log-pvc
+        - name: movies-source-volume
+          persistentVolumeClaim:
+            claimName: movies-source-pvc
+        - name: movies-target-volume
+          persistentVolumeClaim:
+            claimName: movies-target-pvc
+        - name: tv-source-volume
+          persistentVolumeClaim:
+            claimName: tv-source-pvc
+        - name: tv-target-volume
+          persistentVolumeClaim:
+            claimName: tv-target-pvc

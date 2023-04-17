@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+
+spec:
+  - volumeName: log-pvc
+    storageClassName: {{.Values.storage.className}}
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: {{.Values.storage.logs}}
+  - volumeName: movies-source-pvc
+    storageClassName: {{.Values.storage.className}}
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: {{.Values.storage.moviesSource}}
+  - volumeName: movies-target-pvc
+    storageClassName: {{.Values.storage.className}}
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: {{.Values.storage.moviesTarget}}
+  - volumeName: tv-source-pvc
+    storageClassName: {{.Values.storage.className}}
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: {{.Values.storage.tvSource}}
+  - volumeName: tv-target-pvc
+    storageClassName: {{.Values.storage.className}}
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: {{.Values.storage.tvTarget}}
