@@ -6,7 +6,7 @@ image:
 resources:
   limits:
     cpu: 50m
-    memory: 150Mi
+    memory: 200Mi
   requests:
     cpu: 10m
     memory: 50Mi
@@ -19,9 +19,17 @@ storage:
   className: "nfs-client"
   logs: 1Gi
   moviesSource: 20Gi
-  moviesTarget: 20Gi
+  moviesTarget: 100Gi
   tvSource: 20Gi
-  tvTarget: 20Gi
+  tvTarget: 100Gi
 
+db:
+  sync: true
+  host: "postgres"
+  user: "postgres"
+  password: "postgres"
+  name: "postgres"
+
+scanCron: "*/15 * * * *" # every 15 minutes
 
 tmdbApiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

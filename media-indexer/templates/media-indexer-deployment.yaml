@@ -31,6 +31,20 @@ spec:
               value: "/app/tvshows-target"
             - name: TMDB_API_KEY
               value: {{ .Values.tmdbApiKey }}
+            - name: DB_SYNC
+              value: {{ .Values.db.sync }}
+            - name: DB_HOST
+              value: {{ .Values.db.host }}
+            - name: DB_PORT
+              value: {{ .Values.db.port }}
+            - name: DB_USER
+              value: {{ .Values.db.user }}
+            - name: DB_PASSWORD
+              value: {{ .Values.db.password }}
+            - name: DB_NAME
+              value: {{ .Values.db.name }}
+            - name: SCAN_CRON
+              value: {{ .Values.scanCron }}
           volumeMounts:
             - mountPath: /var/log/app
               name: log-volume
