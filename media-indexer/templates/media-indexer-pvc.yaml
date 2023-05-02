@@ -3,9 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: media-indexer-logs
 spec:
-  - storageClassName: {{.Values.storage.className}}
-    accessModes:
-      - ReadWriteMany
-    resources:
-      requests:
-        storage: {{.Values.storage.logs}}
+  storageClassName: {{.Values.storage.className}}
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.storage.logs}}
