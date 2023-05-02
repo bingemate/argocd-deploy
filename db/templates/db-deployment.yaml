@@ -39,4 +39,4 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: db-data-pvc
+            claimName: db-data
