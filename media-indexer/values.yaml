@@ -31,6 +31,6 @@ db:
   port: 5432
   name: "postgres"
 
-scanCron: "*/15 * * * *" # every 15 minutes
+scanCron: "'*/15 * * * *'"
 
 tmdbApiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
