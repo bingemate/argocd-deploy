@@ -31,6 +31,20 @@ spec:
               value: "/app/tvshows-target"
             - name: TMDB_API_KEY
               value: {{ .Values.tmdbApiKey }}
+            - name: DB_SYNC
+              value: {{ .Values.db.sync }}
+            - name: DB_HOST
+              value: {{ .Values.db.host }}
+            - name: DB_PORT
+              value: {{ .Values.db.port }}
+            - name: DB_USER
+              value: {{ .Values.db.user }}
+            - name: DB_PASSWORD
+              value: {{ .Values.db.password }}
+            - name: DB_NAME
+              value: {{ .Values.db.name }}
+            - name: SCAN_CRON
+              value: {{ .Values.scanCron }}
           volumeMounts:
             - mountPath: /var/log/app
               name: log-volume
@@ -82,16 +96,16 @@ spec:
       volumes:
         - name: log-volume
           persistentVolumeClaim:
-            claimName: log-pvc
+            claimName: media-indexer-logs
         - name: movies-source-volume
           persistentVolumeClaim:
-            claimName: movies-source-pvc
+            claimName: {{ .Values.storage.moviesSourcePVC }}
         - name: movies-target-volume
           persistentVolumeClaim:
-            claimName: movies-target-pvc
+            claimName: {{ .Values.storage.moviesTargetPVC }}
         - name: tv-source-volume
           persistentVolumeClaim:
-            claimName: tv-source-pvc
+            claimName: {{ .Values.storage.tvSourcePVC }}
         - name: tv-target-volume
           persistentVolumeClaim:
-            claimName: tv-target-pvc
+            claimName: {{ .Values.storage.tvTargetPVC }}
