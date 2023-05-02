@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-indexer-logs
+spec:
+  - storageClassName: {{.Values.storage.className}}
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: {{.Values.storage.logs}}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: movie-source
+spec:
+  storageClassName: {{.Values.storage.className}}
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.storage.moviesSource}}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: movie-target
+spec:
+  storageClassName: {{.Values.storage.className}}
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.storage.moviesTarget}}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tv-source
+spec:
+  storageClassName: {{.Values.storage.className}}
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.storage.tvSource}}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tv-target
+spec:
+  storageClassName: {{.Values.storage.className}}
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.storage.tvTarget}}

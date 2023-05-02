@@ -96,16 +96,16 @@ spec:
       volumes:
         - name: log-volume
           persistentVolumeClaim:
-            claimName: log-pvc
+            claimName: media-indexer-logs
         - name: movies-source-volume
           persistentVolumeClaim:
-            claimName: movies-source-pvc
+            claimName: movies-source
         - name: movies-target-volume
           persistentVolumeClaim:
-            claimName: movies-target-pvc
+            claimName: movies-target
         - name: tv-source-volume
           persistentVolumeClaim:
-            claimName: tv-source-pvc
+            claimName: tv-source
         - name: tv-target-volume
           persistentVolumeClaim:
-            claimName: tv-target-pvc
+            claimName: tv-target
