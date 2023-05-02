@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - image: "bitnami/postgresql:{{ .Values.image.bitnamiTag }}"
+          name: {{ .Chart.Name }}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: POSTGRESQL_USERNAME
+              value: {{ .Values.db.user }}
+            - name: POSTGRESQL_PASSWORD
+              value: {{ .Values.db.password }}
+            - name: POSTGRESQL_DATABASE
+              value: {{ .Values.db.name }}
+          ports:
+            - containerPort: 5432
+              name: postgresql
+              protocol: TCP
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+          volumeMounts:
+            - name: data
+              mountPath: /bitnami/postgresql
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: db-data
