@@ -56,32 +56,6 @@ spec:
               name: tv-source-volume
             - mountPath: /app/tvshows-target
               name: tv-target-volume
-          livenessProbe:
-            httpGet:
-              port: 8080
-              path: /
-              scheme: HTTP
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
-          readinessProbe:
-            failureThreshold: 3
-            httpGet:
-              path: /
-              port: 8080
-              scheme: HTTP
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
-          startupProbe:
-            failureThreshold: 3
-            httpGet:
-              path: /
-              port: 8080
-              scheme: HTTP
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
           ports:
             - containerPort: 8080
               name: 8080tcp
