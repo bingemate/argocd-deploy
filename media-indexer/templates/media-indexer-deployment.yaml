@@ -20,7 +20,7 @@ spec:
             - name: PORT
               value: "8080"
             - name: LOG_FILE
-              value: "/var/log/app/golang-app.log"
+              value: "/var/logs/app/golang-app.log"
             - name: MOVIE_SOURCE_FOLDER
               value: "/app/movies-source"
             - name: MOVIE_TARGET_FOLDER
@@ -46,7 +46,7 @@ spec:
             - name: SCAN_CRON
               value: {{ .Values.scanCron }}
           volumeMounts:
-            - mountPath: /var/log/app
+            - mountPath: /var/logs/app
               name: log-volume
             - mountPath: /app/movies-source
               name: movies-source-volume
