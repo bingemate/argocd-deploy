@@ -99,13 +99,13 @@ spec:
             claimName: media-indexer-logs
         - name: movies-source-volume
           persistentVolumeClaim:
-            claimName: movies-source
+            claimName: {{ .Values.storage.moviesSourcePVC }}
         - name: movies-target-volume
           persistentVolumeClaim:
-            claimName: movies-target
+            claimName: {{ .Values.storage.moviesTargetPVC }}
         - name: tv-source-volume
           persistentVolumeClaim:
-            claimName: tv-source
+            claimName: {{ .Values.storage.tvSourcePVC }}
         - name: tv-target-volume
           persistentVolumeClaim:
-            claimName: tv-target
+            claimName: {{ .Values.storage.tvTargetPVC }}

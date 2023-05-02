@@ -18,10 +18,10 @@ service:
 storage:
   className: "nfs-client"
   logs: 1Gi
-  moviesSource: 20Gi
-  moviesTarget: 100Gi
-  tvSource: 20Gi
-  tvTarget: 100Gi
+  moviesSourcePVC: movies-source
+  moviesTargetPVC: movies-target
+  tvSourcePVC: tv-source
+  tvTargetPVC: tv-target
 
 db:
   sync: true
