@@ -24,7 +24,7 @@ storage:
   tvTargetPVC: tv-target
 
 db:
-  sync: true
+  sync: "true"
   host: "postgres"
   user: "postgres"
   password: "postgres"
