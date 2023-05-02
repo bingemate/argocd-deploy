@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+
+spec:
+  volumeName: db-data-pvc
+  storageClassName: {{ .Values.storage.className }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.storage.size }}
