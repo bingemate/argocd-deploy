@@ -20,7 +20,7 @@ spec:
             - name: DB_HOST
               value: {{ .Values.image.env.DB_HOST }}
             - name: DB_PORT
-              value: {{ .Values.image.env.DB_PORT }}
+              value: "{{ .Values.image.env.DB_PORT }}"
             - name: DB_NAME
               value: {{ .Values.image.env.DB_NAME }}
             - name: DB_USER
@@ -28,7 +28,7 @@ spec:
             - name: DB_PASSWORD
               value: {{ .Values.image.env.DB_PASSWORD }}
             - name: SERVER_PORT
-              value: {{ .Values.image.env.SERVER_PORT }}
+              value: "{{ .Values.image.env.SERVER_PORT }}"
           livenessProbe:
             failureThreshold: 3
             httpGet:
