@@ -21,10 +21,3 @@ resources:
 service:
   type: ClusterIP
   port: 3000
-
-ingress:
-  enabled: true
-  host: dev-ci.bingemate.fr
-  path: /
-  pathType: Prefix
-  ingressClassName: traefik
