@@ -1,0 +1,32 @@
+image:
+  repository: rg.fr-par.scw.cloud/binge-mate/media-service
+  tag: dev
+  pullPolicy: Always
+
+resources:
+  limits:
+    cpu: 50m
+    memory: 30Mi
+  requests:
+    cpu: 10m
+    memory: 10Mi
+
+service:
+  type: ClusterIP
+  port: 8080
+
+storage:
+  className: "nfs-client"
+  logs: 1Gi
+  moviesTargetPVC: movies-target
+  tvTargetPVC: tv-target
+
+db:
+  sync: "true"
+  host: "postgres"
+  user: "postgres"
+  password: "postgres"
+  port: 5432
+  name: "postgres"
+
+tmdbApiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
