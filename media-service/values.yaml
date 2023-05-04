@@ -1,0 +1,36 @@
+image:
+  repository: rg.fr-par.scw.cloud/binge-mate/media-indexer
+  tag: dev
+  pullPolicy: Always
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 120Mi
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+service:
+  type: ClusterIP
+  port: 8080
+
+storage:
+  className: "nfs-client"
+  logs: 1Gi
+  moviesSourcePVC: movies-source
+  moviesTargetPVC: movies-target
+  tvSourcePVC: tv-source
+  tvTargetPVC: tv-target
+
+db:
+  sync: "true"
+  host: "postgres"
+  user: "postgres"
+  password: "postgres"
+  port: 5432
+  name: "postgres"
+
+scanCron: "'*/15 * * * *'"
+
+tmdbApiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
