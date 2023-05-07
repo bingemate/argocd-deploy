@@ -11,9 +11,6 @@ spec:
     metadata:
       labels:
         app: {{ .Chart.Name }}
-      annotations:
-        argocd-image-updater.argoproj.io/image-list: "{{.Values.image.repository}}:{{.Values.image.tag}}"
-        argocd-image-updater.argoproj.io/update-strategy: "digest"
     spec:
       containers:
         - image: {{.Values.image.repository}}:{{.Values.image.tag}}
