@@ -24,7 +24,7 @@ spec:
             - name: DB_HOST
               value: {{ .Values.db.host }}
             - name: DB_PORT
-              value: {{ .Values.db.port }}
+              value: "{{ .Values.db.port }}"
             - name: DB_USERNAME
               value: {{ .Values.db.user }}
             - name: DB_PASSWORD
