@@ -1,0 +1,27 @@
+image:
+  repository: rg.fr-par.scw.cloud/binge-mate/user-service
+  tag: dev
+  pullPolicy: Always
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 150Mi
+  requests:
+    cpu: 20m
+    memory: 100Mi
+
+service:
+  type: ClusterIP
+  port: 8080
+
+openapiPath: /doc
+
+db:
+  ddl: "update"
+  kind: "postgresql"
+  host: "postgres"
+  user: "postgres"
+  password: "postgres"
+  port: 5432
+  name: "postgres"
