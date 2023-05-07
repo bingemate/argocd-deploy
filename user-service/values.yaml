@@ -23,5 +23,5 @@ db:
   host: "postgres"
   user: "postgres"
   password: "postgres"
-  port: 5432
+  port: "5432"
   name: "postgres"
