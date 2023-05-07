@@ -5,6 +5,3 @@ description: A Helm chart for media service
 type: application
 
 version: 1.0.0
-
-annotations:
-  argocd-image-updater.argoproj.io/update-strategy: "digest"
