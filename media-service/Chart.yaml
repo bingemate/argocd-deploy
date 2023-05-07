@@ -1,0 +1,7 @@
+apiVersion: v2
+name: media-service
+description: A Helm chart for media service
+
+type: application
+
+version: 1.0.0
