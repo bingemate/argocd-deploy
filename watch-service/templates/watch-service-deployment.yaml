@@ -46,9 +46,9 @@ spec:
               path: /status
               port: 3000
               scheme: HTTP
-            failureThreshold: 10
+            failureThreshold: 15
             periodSeconds: 10
-            initialDelaySeconds: 10
+            initialDelaySeconds: 20
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
