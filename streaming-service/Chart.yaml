@@ -1,0 +1,7 @@
+apiVersion: v2
+name: streaming-service
+description: A Helm chart for streaming-service
+
+type: application
+
+version: 1.0.0
