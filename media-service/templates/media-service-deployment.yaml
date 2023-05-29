@@ -22,9 +22,9 @@ spec:
             - name: LOG_FILE
               value: "/var/logs/app/golang-app.log"
             - name: MOVIE_TARGET_FOLDER
-              value: "/app/movies-target"
+              value: "/app/media-target"
             - name: TV_TARGET_FOLDER
-              value: "/app/tvshows-target"
+              value: "/app/media-target"
             - name: TMDB_API_KEY
               value: {{ .Values.tmdbApiKey }}
             - name: DB_SYNC
@@ -42,9 +42,9 @@ spec:
           volumeMounts:
             - mountPath: /var/logs/app
               name: log-volume
-            - mountPath: /app/movies-target
+            - mountPath: /app/media-target
               name: movies-target-volume
-            - mountPath: /app/tvshows-target
+            - mountPath: /app/media-target
               name: tv-target-volume
           ports:
             - containerPort: 8080

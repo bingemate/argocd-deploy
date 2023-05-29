@@ -5,10 +5,10 @@ image:
 
 resources:
   limits:
-    cpu: 100m
-    memory: 120Mi
+    cpu: 4000m
+    memory: 2048Mi
   requests:
-    cpu: 10m
+    cpu: 100m
     memory: 50Mi
 
 service:
@@ -19,9 +19,9 @@ storage:
   className: "nfs-client"
   logs: 1Gi
   moviesSourcePVC: movies-source
-  moviesTargetPVC: movies-target
+  moviesTargetPVC: media-target
   tvSourcePVC: tv-source
-  tvTargetPVC: tv-target
+  tvTargetPVC: media-target
 
 db:
   sync: "true"

@@ -24,11 +24,11 @@ spec:
             - name: MOVIE_SOURCE_FOLDER
               value: "/app/movies-source"
             - name: MOVIE_TARGET_FOLDER
-              value: "/app/movies-target"
+              value: "/app/media-target"
             - name: TV_SOURCE_FOLDER
               value: "/app/tvshows-source"
             - name: TV_TARGET_FOLDER
-              value: "/app/tvshows-target"
+              value: "/app/media-target"
             - name: TMDB_API_KEY
               value: {{ .Values.tmdbApiKey }}
             - name: DB_SYNC
@@ -50,11 +50,11 @@ spec:
               name: log-volume
             - mountPath: /app/movies-source
               name: movies-source-volume
-            - mountPath: /app/movies-target
+            - mountPath: /app/media-target
               name: movies-target-volume
             - mountPath: /app/tvshows-source
               name: tv-source-volume
-            - mountPath: /app/tvshows-target
+            - mountPath: /app/media-target
               name: tv-target-volume
           ports:
             - containerPort: 8080
