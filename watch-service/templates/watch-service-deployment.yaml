@@ -29,6 +29,8 @@ spec:
               value: {{ .Values.image.env.DB_PASSWORD }}
             - name: SERVER_PORT
               value: "{{ .Values.image.env.SERVER_PORT }}"
+            - name: WS_NAMESPACE
+              value: "{{ .Values.image.env.WS_NAMESPACE }}"
           ports:
             - containerPort: 3000
               name: 3000tcp
