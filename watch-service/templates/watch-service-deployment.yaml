@@ -29,8 +29,6 @@ spec:
               value: {{ .Values.image.env.DB_PASSWORD }}
             - name: SERVER_PORT
               value: "{{ .Values.image.env.SERVER_PORT }}"
-            - name: WS_NAMESPACE
-              value: "{{ .Values.image.env.WS_NAMESPACE }}"
           ports:
             - containerPort: 3000
               name: 3000tcp
@@ -50,7 +48,7 @@ spec:
               scheme: HTTP
             failureThreshold: 15
             periodSeconds: 10
-            initialDelaySeconds: 20
+            initialDelaySeconds: 30
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}

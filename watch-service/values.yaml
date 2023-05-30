@@ -9,7 +9,6 @@ image:
     DB_USER: postgres
     DB_PASSWORD: postgres
     SERVER_PORT: 3000
-    WS_NAMESPACE: dev
 
 resources:
   limits:
