@@ -48,7 +48,7 @@ spec:
               scheme: HTTP
             failureThreshold: 15
             periodSeconds: 10
-            initialDelaySeconds: 30
+            initialDelaySeconds: 40
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
