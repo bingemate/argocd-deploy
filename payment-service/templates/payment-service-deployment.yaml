@@ -30,7 +30,7 @@ spec:
             - name: SERVER_PORT
               value: "{{ .Values.image.env.SERVER_PORT }}"
             - name: STRIPE_SECRET_KEY
-              value: "{{ .Values.image.env.STRIPE_SECRET_KEY }}"}
+              value: "{{ .Values.image.env.STRIPE_SECRET_KEY }}"
             - name: STRIPE_CREATED_SUB_KEY
               value: "{{ .Values.image.env.STRIPE_CREATED_SUB_KEY }}"
             - name: STRIPE_CANCELED_SUB_KEY
