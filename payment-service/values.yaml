@@ -1,0 +1,28 @@
+image:
+  repository: rg.fr-par.scw.cloud/binge-mate/payment-service
+  tag: dev
+  pullPolicy: Always
+  env:
+    DB_HOST: localhost
+    DB_PORT: 5432
+    DB_NAME: postgres
+    DB_USER: postgres
+    DB_PASSWORD: postgres
+    SERVER_PORT: 3000
+    STRIPE_SECRET_KEY:
+    STRIPE_CREATED_SUB_KEY:
+    STRIPE_CANCELED_SUB_KEY:
+    FRONT_URL:
+    KEYCLOAK_SERVICE_URL:
+
+resources:
+  limits:
+    cpu: 30m
+    memory: 100Mi
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+service:
+  type: ClusterIP
+  port: 3000

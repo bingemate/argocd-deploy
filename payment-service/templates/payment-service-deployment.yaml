@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          name: {{ .Chart.Name }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: DB_HOST
+              value: {{ .Values.image.env.DB_HOST }}
+            - name: DB_PORT
+              value: "{{ .Values.image.env.DB_PORT }}"
+            - name: DB_NAME
+              value: {{ .Values.image.env.DB_NAME }}
+            - name: DB_USER
+              value: {{ .Values.image.env.DB_USER }}
+            - name: DB_PASSWORD
+              value: {{ .Values.image.env.DB_PASSWORD }}
+            - name: SERVER_PORT
+              value: "{{ .Values.image.env.SERVER_PORT }}"
+            - name: STRIPE_SECRET_KEY
+              value: "{{ .Values.image.env.STRIPE_SECRET_KEY }}"}
+            - name: STRIPE_CREATED_SUB_KEY
+              value: "{{ .Values.image.env.STRIPE_CREATED_SUB_KEY }}"
+            - name: STRIPE_CANCELED_SUB_KEY
+              value: "{{ .Values.image.env.STRIPE_CANCELED_SUB_KEY }}"
+            - name: FRONT_URL
+              value: "{{ .Values.image.env.FRONT_URL }}"
+            - name: KEYCLOAK_SERVICE_URL
+              value: "{{ .Values.image.env.KEYCLOAK_SERVICE_URL }}"
+          ports:
+            - containerPort: 3000
+              name: 3000tcp
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 1
+            httpGet:
+              path: /status
+              port: 3000
+              scheme: HTTP
+            periodSeconds: 30
+            timeoutSeconds: 2
+          startupProbe:
+            httpGet:
+              path: /status
+              port: 3000
+              scheme: HTTP
+            failureThreshold: 15
+            periodSeconds: 10
+            initialDelaySeconds: 40
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
