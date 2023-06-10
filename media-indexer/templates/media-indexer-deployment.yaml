@@ -20,7 +20,7 @@ spec:
             - name: PORT
               value: "8080"
             - name: LOG_FILE
-              value: "/var/logs/app/golang-app.log"
+              value: "/var/logs/app/media-indexer.log"
             - name: MOVIE_SOURCE_FOLDER
               value: "/app/movies-source"
             - name: MOVIE_TARGET_FOLDER
