@@ -24,11 +24,11 @@ spec:
             - name: MOVIE_SOURCE_FOLDER
               value: "/app/movies-source"
             - name: MOVIE_TARGET_FOLDER
-              value: "/app/media-target"
+              value: "/app/media-targe/movies"
             - name: TV_SOURCE_FOLDER
               value: "/app/tvshows-source"
             - name: TV_TARGET_FOLDER
-              value: "/app/media-target"
+              value: "/app/media-target/tv-shows"
             - name: TMDB_API_KEY
               value: {{ .Values.tmdbApiKey }}
             - name: DB_SYNC
