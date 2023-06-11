@@ -24,7 +24,7 @@ spec:
             - name: MOVIE_SOURCE_FOLDER
               value: "/app/movies-source"
             - name: MOVIE_TARGET_FOLDER
-              value: "/app/media-targe/movies"
+              value: "/app/media-target/movies"
             - name: TV_SOURCE_FOLDER
               value: "/app/tvshows-source"
             - name: TV_TARGET_FOLDER
