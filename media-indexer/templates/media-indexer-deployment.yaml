@@ -20,15 +20,15 @@ spec:
             - name: PORT
               value: "8080"
             - name: LOG_FILE
-              value: "/var/logs/app/golang-app.log"
+              value: "/var/logs/app/media-indexer.log"
             - name: MOVIE_SOURCE_FOLDER
               value: "/app/movies-source"
             - name: MOVIE_TARGET_FOLDER
-              value: "/app/media-target"
+              value: "/app/media-target/movies"
             - name: TV_SOURCE_FOLDER
               value: "/app/tvshows-source"
             - name: TV_TARGET_FOLDER
-              value: "/app/media-target"
+              value: "/app/media-target/tv-shows"
             - name: TMDB_API_KEY
               value: {{ .Values.tmdbApiKey }}
             - name: DB_SYNC
