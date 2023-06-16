@@ -35,6 +35,8 @@ spec:
               value: "{{ .Values.image.env.STRIPE_CREATED_SUB_KEY }}"
             - name: STRIPE_CANCELED_SUB_KEY
               value: "{{ .Values.image.env.STRIPE_CANCELED_SUB_KEY }}"
+            - name: STRIPE_PRODUCT
+              value: "{{ .Values.image.env.STRIPE_PRODUCT }}"
             - name: FRONT_URL
               value: "{{ .Values.image.env.FRONT_URL }}"
             - name: KEYCLOAK_SERVICE_URL
