@@ -22,9 +22,9 @@ spec:
             - name: LOG_FILE
               value: "/var/logs/app/golang-app.log"
             - name: MOVIE_TARGET_FOLDER
-              value: "/app/media-target"
+              value: "/app/media-target/movies"
             - name: TV_TARGET_FOLDER
-              value: "/app/media-target"
+              value: "/app/media-target/tv-shows"
             - name: TMDB_API_KEY
               value: {{ .Values.tmdbApiKey }}
             - name: DB_SYNC
