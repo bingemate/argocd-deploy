@@ -43,6 +43,10 @@ spec:
               value: {{ .Values.db.password }}
             - name: DB_NAME
               value: {{ .Values.db.name }}
+            - name: REDIS_HOST
+              value: {{ .Values.redis.host }}
+            - name: REDIS_PASSWORD
+              value: {{ .Values.redis.password }}
             - name: SCAN_CRON
               value: {{ .Values.scanCron }}
           volumeMounts:

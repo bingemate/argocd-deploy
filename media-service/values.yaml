@@ -29,4 +29,8 @@ db:
   port: 5432
   name: "postgres"
 
+redis:
+  host: "redis:6379"
+  password: "redis"
+
 tmdbApiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
