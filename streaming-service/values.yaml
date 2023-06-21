@@ -8,8 +8,8 @@ resources:
     cpu: 100m
     memory: 50Mi
   requests:
-    cpu: 10m
-    memory: 20Mi
+    cpu: 25m
+    memory: 30Mi
 
 hpa:
   minReplicas: 1

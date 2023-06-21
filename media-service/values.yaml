@@ -9,7 +9,7 @@ resources:
     memory: 50Mi
   requests:
     cpu: 25m
-    memory: 25Mi
+    memory: 30Mi
 
 hpa:
   minReplicas: 1
