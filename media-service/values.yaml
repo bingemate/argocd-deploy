@@ -14,7 +14,7 @@ resources:
 hpa:
   minReplicas: 1
   maxReplicas: 3
-  memoryUtilizationPercentage: 60
+  memoryUtilizationPercentage: 70
 
 service:
   type: ClusterIP
