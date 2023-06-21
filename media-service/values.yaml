@@ -6,9 +6,9 @@ image:
 resources:
   limits:
     cpu: 500m
-    memory: 100Mi
+    memory: 50Mi
   requests:
-    cpu: 50m
+    cpu: 25m
     memory: 25Mi
 
 service:
