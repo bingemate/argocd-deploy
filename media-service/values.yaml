@@ -20,6 +20,12 @@ service:
   type: ClusterIP
   port: 8080
 
+s3:
+  endpoint: https://s3.fr-par.scw.cloud
+  bucket: bingemate
+  accessKeyId: xxxxxxxxxxxxxxxxxxxx
+  secretAccessKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 storage:
   className: "nfs-client"
   logs: 1Gi
