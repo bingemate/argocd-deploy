@@ -5,11 +5,16 @@ image:
 
 resources:
   limits:
-    cpu: 100m
+    cpu: 200m
     memory: 100Mi
   requests:
-    cpu: 10m
-    memory: 20Mi
+    cpu: 25m
+    memory: 50Mi
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 3
+  memoryUtilizationPercentage: 60
 
 service:
   type: ClusterIP

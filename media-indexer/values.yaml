@@ -31,6 +31,12 @@ db:
   port: 5432
   name: "postgres"
 
+s3:
+  endpoint: https://s3.fr-par.scw.cloud
+  bucket: bingemate
+  accessKeyId: xxxxxxxxxxxxxxxxxxxx
+  secretAccessKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 redis:
   host: "redis:6379"
   password: "redis"

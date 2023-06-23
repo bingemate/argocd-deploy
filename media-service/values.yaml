@@ -5,15 +5,26 @@ image:
 
 resources:
   limits:
-    cpu: 500m
-    memory: 100Mi
+    cpu: 100m
+    memory: 50Mi
   requests:
-    cpu: 50m
-    memory: 25Mi
+    cpu: 25m
+    memory: 30Mi
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 3
+  memoryUtilizationPercentage: 70
 
 service:
   type: ClusterIP
   port: 8080
+
+s3:
+  endpoint: https://s3.fr-par.scw.cloud
+  bucket: bingemate
+  accessKeyId: xxxxxxxxxxxxxxxxxxxx
+  secretAccessKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 storage:
   className: "nfs-client"
