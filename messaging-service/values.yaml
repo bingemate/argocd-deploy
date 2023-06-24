@@ -13,10 +13,10 @@ image:
 resources:
   limits:
     cpu: 30m
-    memory: 100Mi
+    memory: 150Mi
   requests:
     cpu: 10m
-    memory: 50Mi
+    memory: 100Mi
 
 service:
   type: ClusterIP
