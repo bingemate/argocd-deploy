@@ -6,8 +6,10 @@ spec:
   ports:
     - port: {{ .Values.service.port }}
       targetPort: 3000
+      name: service
     - port: {{ .Values.service.wsPort }}
       targetPort: 3001
+      name: websocket
   selector:
     app: {{ .Chart.Name}}
   type: {{ .Values.service.type }}
