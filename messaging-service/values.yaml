@@ -21,3 +21,11 @@ resources:
 service:
   type: ClusterIP
   port: 3000
+  wsPort: 3001
+
+ingress:
+  enabled: true
+  host: ws-messaging-dev.bingemate.fr
+  path: /
+  pathType: Prefix
+  ingressClassName: traefik
