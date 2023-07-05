@@ -33,6 +33,9 @@ spec:
             - containerPort: 3000
               name: 3000tcp
               protocol: TCP
+            - containerPort: 3001
+              name: 3001tcp
+              protocol: TCP
           livenessProbe:
             failureThreshold: 2
             httpGet:

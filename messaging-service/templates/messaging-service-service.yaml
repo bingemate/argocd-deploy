@@ -6,6 +6,8 @@ spec:
   ports:
     - port: {{ .Values.service.port }}
       targetPort: 3000
+    - port: {{ .Values.service.wsPort }}
+      targetPort: 3001
   selector:
     app: {{ .Chart.Name}}
   type: {{ .Values.service.type }}
